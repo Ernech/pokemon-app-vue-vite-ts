@@ -1,0 +1,37 @@
+import {  createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+
+import HomeView from '../views/HomeView.vue'
+import PokemonQuizView from '../modules/pokemon-quiz/views/PokemonQuizView.vue'
+import PokedexView from '../modules/pokedex/views/PokedexView.vue'
+
+
+
+
+const routes:Array<RouteRecordRaw> = [
+  { 
+    path: '/', 
+    name:'Home',
+    component: HomeView 
+  },
+  { 
+    path: '/pokemon-quiz', 
+    name:'Pokemon Quiz',
+    component: PokemonQuizView 
+  },
+  { 
+    path: '/pokedex', 
+    name:'Pokedex',
+    component: PokedexView 
+  },
+ { 
+    path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: HomeView 
+  }
+  
+]
+
+export const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+})
