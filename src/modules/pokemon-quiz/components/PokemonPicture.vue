@@ -29,6 +29,7 @@ const {showPokemon, imgSrc} = usePokemons();
 
 .pokemon-container {
     height: 200px;
+    
 }
 img {
     height: 200px;
