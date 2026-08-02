@@ -1,21 +1,21 @@
 <template>
-    <h1 v-if="!pokemon">Hold on please...</h1>
-
-    <div v-else>
-        <h1>Who's this pokemon?</h1>
-
-        <PokemonPicture />
-
-        <PokemonOptions />
-
-        <template v-if="showAnswer">
-            <h2 class="fade-in">{{ message }}</h2>
-            <button @click="newGame">
-                New Game
-            </button>
-        </template>
-
-    </div>
+   
+        <h1 class="text-4xl 
+        md:text-5xl 
+        font-black tracking-wider
+        text-yellow-400 
+        drop-shadow-[0_4px_0_rgba(29,78,216,1)]
+        uppercase 
+        text-center
+        mb-10 
+        ">Who's that pokemon?</h1>
+        <div class="min-h-132 card w-full max-w-md bg-slate-50 border-4 border-neutral-900 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] p-6">
+             <h1 v-if="!pokemon" class="flex font-pixel">Hold on please...</h1>
+             <template v-else>
+                 <PokemonPicture />
+                 <PokemonOptions />
+             </template>
+        </div>
 </template>
 <!-- 
 <script src="./PokemonPage.ts"/> -->
@@ -25,8 +25,7 @@ import PokemonPicture from '../components/PokemonPicture.vue';
 import { usePokemons } from '../composables/usePokemonsForQuiz';
 
 
-const { pokemon, showAnswer, message,
-    mixPokemonArray, newGame } = usePokemons();
+const { pokemon, mixPokemonArray } = usePokemons();
 
 mixPokemonArray();
 </script>

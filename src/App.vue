@@ -1,17 +1,10 @@
 <template>
-  <RouterView/>
+  <div class="min-h-screen bg-linear-to-b from-red-500 via-red-600 to-amber-400 flex flex-col items-center justify-center p-4">
+
+    <RouterView/>
+  </div>
 </template>
 
 <script setup lang="ts">
   
 </script>
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

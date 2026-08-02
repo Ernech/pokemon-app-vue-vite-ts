@@ -1,14 +1,14 @@
 <template>
-    <div class="pokemon-container">
+    <div class="bg-emerald-200 border-4 border-neutral-800 rounded-xl p-6 flex justify-center items-center shadow-inner h-64 relative overflow-hidden">
 
         <img v-if="!showPokemon" 
             :src="imgSrc" 
-            class="hidden-pokemon"
+            class="brightness-0 w-64 h-64 object-contain"
             alt="pokemon">
         
         <img v-else
             :src="imgSrc"
-            class="fade-in"
+            class="animate-reveal-brightness w-64 h-64 object-contain"
             alt="pokemon">
 
     </div>
