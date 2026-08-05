@@ -6,7 +6,7 @@ import { computed } from "vue";
 export const usePokemons=()=>{
 
     const pokemonStore = usePokemonStore();
-    const { pokemonArr, pokemon, showPokemon, showAnswer, message } = storeToRefs(pokemonStore)
+    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives } = storeToRefs(pokemonStore)
     
 
 
@@ -22,14 +22,23 @@ export const usePokemons=()=>{
         if (selectedId === pokemon.value.id) {
             pokemonStore.showPokemonAndAnswer( `Correct, ${pokemon.value.name}`)
         } else {
+            pokemonStore.discountLive();
             pokemonStore.showPokemonAndAnswer( `Oops, that was ${pokemon.value.name}`)
         }
     }
 
     const newGame = () => {
-        pokemonStore.clearState();
-        mixPokemonArray()
+        if(lives.value>0){
+            pokemonStore.clearState();
+            mixPokemonArray();
+        }else{
+            gameOver()
+        }
     }
+    const gameOver = ()=>{
+        console.log("Game over");
+    }
+    
 
     return{
         pokemonArr, 
@@ -37,7 +46,7 @@ export const usePokemons=()=>{
         showPokemon, 
         showAnswer, 
         message,
-
+        lives,
         imgSrc:computed(()=>`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ pokemon.value?.id }.svg`),
 
 

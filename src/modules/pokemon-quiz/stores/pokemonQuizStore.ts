@@ -9,6 +9,7 @@ interface PokemonSate{
     showPokemon:boolean;
     showAnswer:boolean;
     message:string;
+    lives:number;
 
 }
 
@@ -18,7 +19,8 @@ export const usePokemonStore = defineStore('pokemon',{
         pokemon:undefined,
         showPokemon:false,
         showAnswer:false,
-        message:''
+        message:'',
+        lives:5
     }),
     actions:{
         loadPokemons(pokemons:PokemonForQuiz[]){
@@ -31,6 +33,9 @@ export const usePokemonStore = defineStore('pokemon',{
             this.showAnswer=true;
             this.showPokemon=true;
             this.message=message;
+        },
+        discountLive(){
+            this.lives-=1;
         },
         clearState(){
             this.pokemonArr=[];
