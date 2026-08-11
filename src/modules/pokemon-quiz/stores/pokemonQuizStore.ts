@@ -50,5 +50,8 @@ export const usePokemonStore = defineStore('pokemon',{
             this.message = '';
         }
         
+    },
+    getters:{
+        isGameOver:(state)=>state.lives<=0
     }
 });
