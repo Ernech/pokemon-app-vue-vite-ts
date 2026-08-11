@@ -6,7 +6,7 @@ import { computed } from "vue";
 export const usePokemons=()=>{
 
     const pokemonStore = usePokemonStore();
-    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives, score } = storeToRefs(pokemonStore)
+    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives, score, isGameOver } = storeToRefs(pokemonStore)
     
 
 
@@ -29,11 +29,13 @@ export const usePokemons=()=>{
     }
 
     const newGame = () => {
-        if(lives.value>0){
+        if(!isGameOver.value){
             pokemonStore.clearState();
             mixPokemonArray();
         }else{
-            gameOver()
+            gameOver();
+            pokemonStore.resetGame();
+            mixPokemonArray();
         }
     }
     const gameOver = ()=>{
@@ -54,7 +56,8 @@ export const usePokemons=()=>{
         mixPokemonArray,
         checkAnswer,
         newGame,
-        score
+        score,
+        isGameOver
     }
 
 }

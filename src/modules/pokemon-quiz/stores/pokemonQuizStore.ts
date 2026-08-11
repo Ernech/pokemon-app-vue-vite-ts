@@ -48,6 +48,11 @@ export const usePokemonStore = defineStore('pokemon',{
             this.showPokemon = false;
             this.showAnswer = false;
             this.message = '';
+        },
+        resetGame(){
+            this.clearState();
+            this.lives=5;
+            this.score=0;
         }
         
     },

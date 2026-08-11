@@ -19,7 +19,7 @@
             <h2 class="font-pixel text-2xl">{{ message }}</h2>
             <button class="btn btn-outline btn-lg border-3 border-neutral-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" @click="newGame">
                 <span class="font-pixel uppercase">
-                    New Game
+                    {{isGameOver?'New Game':'Continue'}}
                 </span>
             </button>
         </div>
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { usePokemons } from '../composables/usePokemonsForQuiz';
 
-const {pokemonArr:pokemons, checkAnswer,showPokemon, showAnswer,message,newGame}=usePokemons()
+const {pokemonArr:pokemons, checkAnswer,showPokemon, showAnswer,message,newGame,isGameOver}=usePokemons()
 
 </script>
 
