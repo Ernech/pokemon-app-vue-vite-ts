@@ -10,6 +10,7 @@ interface PokemonSate{
     showAnswer:boolean;
     message:string;
     lives:number;
+    score:number;
 
 }
 
@@ -20,7 +21,8 @@ export const usePokemonStore = defineStore('pokemon',{
         showPokemon:false,
         showAnswer:false,
         message:'',
-        lives:5
+        lives:5,
+        score:0
     }),
     actions:{
         loadPokemons(pokemons:PokemonForQuiz[]){
@@ -37,6 +39,9 @@ export const usePokemonStore = defineStore('pokemon',{
         discountLive(){
             this.lives-=1;
         },
+        incrementScore(){
+            this.score+=1;
+        },
         clearState(){
             this.pokemonArr=[];
             this.pokemon = undefined;
@@ -44,5 +49,6 @@ export const usePokemonStore = defineStore('pokemon',{
             this.showAnswer = false;
             this.message = '';
         }
+        
     }
 });

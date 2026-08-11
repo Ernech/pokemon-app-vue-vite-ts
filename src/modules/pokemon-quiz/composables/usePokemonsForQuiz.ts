@@ -6,7 +6,7 @@ import { computed } from "vue";
 export const usePokemons=()=>{
 
     const pokemonStore = usePokemonStore();
-    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives } = storeToRefs(pokemonStore)
+    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives, score } = storeToRefs(pokemonStore)
     
 
 
@@ -20,6 +20,7 @@ export const usePokemons=()=>{
         if (!pokemon.value) return;
 
         if (selectedId === pokemon.value.id) {
+            pokemonStore.incrementScore();
             pokemonStore.showPokemonAndAnswer( `Correct, ${pokemon.value.name}`)
         } else {
             pokemonStore.discountLive();
@@ -52,7 +53,8 @@ export const usePokemons=()=>{
 
         mixPokemonArray,
         checkAnswer,
-        newGame
+        newGame,
+        score
     }
 
 }
