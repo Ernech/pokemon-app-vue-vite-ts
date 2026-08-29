@@ -28,7 +28,43 @@
           <span class="text-red-500 drop-shadow-[0_4px_0_#1e3a8a]">Pokémon</span> Quiz
         </h1>
         
-       
+       <div class="bg-black/20 border-2 border-dashed border-white/30 rounded-xl p-4 text-center my-2 text-white">
+        <!-- If user already saved his/her name and is not editing-->
+        <div v-if="hasSavedName && !isEditingName" class="flex flex-col items-center gap-2">
+          <p class="text-sm uppercase tracking-wide">
+            Welcome back, <span class="text-yellow-400 font-bold tracking-widest">{{playerName}}</span>
+          </p>
+          <button 
+          @click="isEditingName=true"
+          class="text-[10px] text-gray-300 underline hover:text-white uppercase transition-colors">
+            [Change Name]
+          </button>
+        </div>
+        <!-- User is new or decides to edit his/her name -->
+         <div v-else class="flex flex-col gap-2">
+          <label class="text-xs uppercase tracking-wider text-gray-200">
+            {{isEditingName ? 'Modify your trainer name:':'Enter your trainer game:'}}
+          </label>
+          <div class="relative flex items-center">
+            <input 
+              v-model="playerName"
+              v-on:click="isEditingName=true" 
+              type="text" 
+              maxlength="15" 
+              placeholder="TRAINER..." 
+              class="w-full bg-white text-black p-2.5 text-xs text-center uppercase tracking-wider border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button
+            v-if="isEditingName"
+            @click="savePlayerName()"
+            :disabled="playerName.length==0"
+            type="button"
+            class="absolute right-2 text-xs bg-green-600 border border-black text-white px-2 py-1 shadow-[1px_1px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none"
+            >
+            Ok
+          </button>
+            </div>
+         </div>
+       </div>
         <p class="text-sm md:text-base text-gray-100 font-pixel text-center md:text-justify leading-relaxed opacity-95 my-2">
           A new silhouette has appeared! Can you recognize it before it's too late? Tap the correct name and prove your status as a top Trainer.
         </p>
@@ -80,5 +116,23 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
+const playerName = ref('')
+const isEditingName = ref(false);
+const hasSavedName = ref(false);
+onMounted(()=>{
+  const savedName = localStorage.getItem('currentPlayer');
+  if(savedName){
+    playerName.value=savedName;
+    hasSavedName.value=true;
+  }
+
+});
+const savePlayerName =()=>{
+  hasSavedName.value = true; 
+  isEditingName.value = false; 
+  localStorage.setItem('currentPlayer', playerName.value.toUpperCase())
+}
 
 </script>
