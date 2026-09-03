@@ -3,6 +3,7 @@ import { usePokemonStore } from "../stores/pokemonQuizStore";
 import getPokemonOptions from "../helpers/getPokemosForQuiz";
 import { computed } from "vue";
 import type { PokemonQuizScore } from "../interfaces/pokemon-quiz-score";
+import { v4 as uuidv4 } from 'uuid';
 
 export const usePokemons=()=>{
 
@@ -64,7 +65,8 @@ export const usePokemons=()=>{
 
      
         const newScore: PokemonQuizScore = {
-            userName: savedName,
+            scoreId:uuidv4(),
+            trainer: savedName,
             finalScore: score.value,
             scoreDate: new Date()
         };
@@ -84,6 +86,23 @@ export const usePokemons=()=>{
         }
     }
     
+    const getTopScores =():PokemonQuizScore[]=>{
+        try {
+            const storedScores = localStorage.getItem('scores');
+            if (storedScores) {
+            const parsed = JSON.parse(storedScores);
+                if (Array.isArray(parsed)) {
+                    return parsed;
+                }
+                return []
+            }
+            return [];
+        } catch (error) {
+            console.log("Error when retrieving scores",error);
+            return [];
+        }
+       
+    }
 
     return{
         pokemonArr, 
@@ -99,7 +118,8 @@ export const usePokemons=()=>{
         checkAnswer,
         newGame,
         score,
-        isGameOver
+        isGameOver,
+        getTopScores
     }
 
 }

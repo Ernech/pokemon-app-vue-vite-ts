@@ -1,5 +1,6 @@
 export interface PokemonQuizScore{
-    userName:string;
+    scoreId:string;
+    trainer:string;
     finalScore:number;
     scoreDate:Date
 

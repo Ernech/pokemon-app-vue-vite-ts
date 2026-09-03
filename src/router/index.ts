@@ -3,6 +3,7 @@ import {  createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router
 import HomeView from '../views/HomeView.vue'
 import PokemonQuizView from '../modules/pokemon-quiz/views/PokemonQuizView.vue'
 import PokedexView from '../modules/pokedex/views/PokedexView.vue'
+import HigestScoresView from '../modules/pokemon-quiz/views/HigestScoresView.vue'
 
 
 
@@ -23,7 +24,12 @@ const routes:Array<RouteRecordRaw> = [
     name:'Pokedex',
     component: PokedexView 
   },
- { 
+  {
+    path:'/scores',
+    name:'HigestScores',
+    component: HigestScoresView
+  },
+  { 
     path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
     component: HomeView 
