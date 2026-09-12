@@ -1,4 +1,13 @@
 <template>
+  <button 
+        @click="returnToHomeScreen"
+        class="relative self-start mb-4 md:fixed md:top-4 md:left-4 md:mb-0 bg-white border-2 
+        border-black p-2 
+        font-pixel shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] 
+        hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] 
+        transition-all
+        rounded-md
+        ">&lt; Main Menu</button>
     <div class="w-full max-w-3xl mx-auto p-4 md:p-6 font-pixel select-none">
         <h1 class="text-2xl md:text-4xl text-center font-black tracking-widest 
         text-yellow-400 drop-shadow-[0_4px_0_#2563eb] uppercase font-mono my-6
@@ -51,10 +60,10 @@
 </template>
 <script lang="ts" setup>
 import { usePokemons } from '../composables/usePokemonsForQuiz';
-
+import { useRouter } from 'vue-router';
 const {getTopScores} = usePokemons()
 const topSocres = getTopScores();
-
+const router = useRouter()
 const formatatDate=(scoreDate:Date):string=>{
   if (!scoreDate) return '--/--/----';
   const fecha = new Date(scoreDate);
@@ -67,5 +76,7 @@ const formatatDate=(scoreDate:Date):string=>{
   
   return `${dia}/${mes}/${anio}`;
 }
-
+const returnToHomeScreen = ()=>{
+  router.push('/');
+}
 </script>

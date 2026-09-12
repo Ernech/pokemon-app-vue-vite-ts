@@ -91,7 +91,7 @@
 
           <!-- Botón Highest Scores -->
           <router-link 
-            to=""
+            to="/scores"
             class="py-3.5 w-full bg-white border-3 border-black font-pixel text-xs text-center tracking-wider uppercase text-black
                    shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-100 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
           >
