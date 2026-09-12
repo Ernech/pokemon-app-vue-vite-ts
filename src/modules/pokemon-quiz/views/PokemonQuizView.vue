@@ -61,6 +61,7 @@
       </div>
     </div>
   </div>
+  <GameOverModal/>
 </template>
 
 <script setup lang="ts">
@@ -70,6 +71,7 @@ import PokemonOptions from '../components/PokemonOptions.vue';
 import PokemonPicture from '../components/PokemonPicture.vue';
 import { usePokemons } from '../composables/usePokemonsForQuiz';
 import { ref } from 'vue'
+import GameOverModal from '../components/GameOverModal.vue';
 const { pokemon, mixPokemonArray, score, lives } = usePokemons();
 const router = useRouter()
 mixPokemonArray();

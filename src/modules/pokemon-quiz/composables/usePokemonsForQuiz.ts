@@ -30,7 +30,7 @@ export const usePokemons=()=>{
         }
     }
 
-    const newGame = () => {
+    const continueGame = () => {
         if(!isGameOver.value){
             pokemonStore.clearState();
             mixPokemonArray();
@@ -116,7 +116,7 @@ export const usePokemons=()=>{
 
         mixPokemonArray,
         checkAnswer,
-        newGame,
+        continueGame,
         score,
         isGameOver,
         getTopScores
