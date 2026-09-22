@@ -16,13 +16,13 @@ interface PokemonSate{
 
 export const usePokemonStore = defineStore('pokemon',{
     state:():PokemonSate=>({
-        pokemonArr:[],
-        pokemon:undefined,
+        pokemonArr: JSON.parse(localStorage.getItem('pokemon_quiz_arr') || '[]'),
+        pokemon: JSON.parse(localStorage.getItem('pokemon_quiz_correct') || 'null') || undefined,
         showPokemon:false,
         showAnswer:false,
         message:'',
-        lives:5,
-        score:0
+        lives:Number(localStorage.getItem('pokemon_quiz_lives')) || 5,
+        score:Number(localStorage.getItem('pokemon_quiz_score')) || 0
     }),
     actions:{
         loadPokemons(pokemons:PokemonForQuiz[]){
@@ -48,11 +48,28 @@ export const usePokemonStore = defineStore('pokemon',{
             this.showPokemon = false;
             this.showAnswer = false;
             this.message = '';
+            this.resetStorage();
         },
         resetGame(){
             this.clearState();
             this.lives=5;
             this.score=0;
+            this.resetStorage();
+        },
+        syncStorage(){
+            localStorage.setItem('pokemon_quiz_score', this.score.toString());
+            localStorage.setItem('pokemon_quiz_lives', this.lives.toString());
+            localStorage.setItem('pokemon_quiz_arr', JSON.stringify(this.pokemonArr));
+            
+            if (this.pokemon) {
+                localStorage.setItem('pokemon_quiz_correct', JSON.stringify(this.pokemon));
+            }
+        },
+        resetStorage(){
+            localStorage.removeItem('pokemon_quiz_score');
+            localStorage.removeItem('pokemon_quiz_lives');
+            localStorage.removeItem('pokemon_quiz_arr');
+            localStorage.removeItem('pokemon_quiz_correct');
         }
         
     },
