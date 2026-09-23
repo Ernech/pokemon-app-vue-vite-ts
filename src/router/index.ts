@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import PokemonQuizView from '../modules/pokemon-quiz/views/PokemonQuizView.vue'
 import PokedexView from '../modules/pokedex/views/PokedexView.vue'
 import HigestScoresView from '../modules/pokemon-quiz/views/HigestScoresView.vue'
+import HowToPlayView from '../modules/pokemon-quiz/views/HowToPlayView.vue'
 
 
 
@@ -23,6 +24,11 @@ const routes:Array<RouteRecordRaw> = [
     path: '/pokedex', 
     name:'Pokedex',
     component: PokedexView 
+  },
+  {
+    path:'/instructions',
+    name:'How to Play',
+    component:HowToPlayView
   },
   {
     path:'/scores',
