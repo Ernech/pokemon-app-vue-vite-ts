@@ -7,12 +7,12 @@
     </h1>
 
     <!-- CONTENEDOR DEL CARRUSEL DE DAISYUI -->
-    <div class="carousel w-full bg-white/10 backdrop-blur-md border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-4 md:p-8">
+    <div class="carousel w-full bg-white/10 backdrop-blur-md border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-6 md:p-12">
       
       <!-- Slide 1: Introducción Profesor Oak -->
       <div id="slide1" class="carousel-item w-full flex flex-col items-center">
-        <!-- <IntroOakSlide /> -->
-        <h2 class="text-white text-center">Slide 1: Oak's Welcome & Name Setup</h2>
+        <IntroOakSlide />
+        
       </div>
       
       <!-- Slide 2: Mecánica de Combate y Vidas -->
@@ -39,5 +39,6 @@
   </div>
 </template>
 <script setup lang="ts">
+import IntroOakSlide from '../components/how-to-play/IntroOakSlide.vue';
 
 </script>
