@@ -1,5 +1,5 @@
 <template >
- <div class="w-full max-w-2xl mx-auto p-4 md:p-6 font-pixel select-none">
+ <div class="w-full max-w-3xl mx-auto p-4 md:p-6 font-pixel select-none">
     
     <!-- TÍTULO RETRO -->
     <h1 class="text-2xl md:text-4xl text-center font-black tracking-widest text-yellow-400 drop-shadow-[0_4px_0_#2563eb] uppercase mb-6">
@@ -17,8 +17,7 @@
       
       <!-- Slide 2: Mecánica de Combate y Vidas -->
       <div id="slide2" class="carousel-item w-full flex flex-col items-center">
-        <!-- <BattleMechanicsSlide /> -->
-        <h2 class="text-white text-center">Slide 2: Gameplay & Lives System</h2>
+        <BattleMechanicsSlide />
       </div>
       
       <!-- Slide 3: Fin del Juego y Salón de la Fama -->
@@ -39,6 +38,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import BattleMechanicsSlide from '../components/how-to-play/BattleMechanicsSlide.vue';
 import IntroOakSlide from '../components/how-to-play/IntroOakSlide.vue';
 
 </script>
