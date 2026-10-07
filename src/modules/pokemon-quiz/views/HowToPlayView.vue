@@ -22,8 +22,8 @@
       
       <!-- Slide 3: Fin del Juego y Salón de la Fama -->
       <div id="slide3" class="carousel-item w-full flex flex-col items-center">
-        <!-- <GameOverRecordsSlide /> -->
-        <h2 class="text-white text-center">Slide 3: Scoring & Hall of Fame</h2>
+        <ScoringAndHallOfFame />
+
       </div>
 
     </div>
@@ -40,5 +40,6 @@
 <script setup lang="ts">
 import BattleMechanicsSlide from '../components/how-to-play/BattleMechanicsSlide.vue';
 import IntroOakSlide from '../components/how-to-play/IntroOakSlide.vue';
+import ScoringAndHallOfFame from '../components/how-to-play/ScoringAndHallOfFame.vue';
 
 </script>
