@@ -7,22 +7,24 @@
     </h1>
 
     <!-- CONTENEDOR DEL CARRUSEL DE DAISYUI -->
-    <div class="carousel w-full bg-white/10 backdrop-blur-md border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-6 md:p-12">
+    <div class="carousel w-full bg-white/10 backdrop-blur-md border-4 border-black 
+            shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-4 md:p-8 
+            overflow-x-hidden overflow-y-auto max-w-full">
       
       <!-- Slide 1: Introducción Profesor Oak -->
-      <div id="slide1" class="carousel-item w-full flex flex-col items-center">
-        <IntroOakSlide />
+      <div id="slide1" class="carousel-item w-full max-w-full shrink-0 flex flex-col items-center justify-start overflow-hidden">
+        <IntroOakSlide class="w-full max-w-full overflow-hidden" />
         
       </div>
       
       <!-- Slide 2: Mecánica de Combate y Vidas -->
-      <div id="slide2" class="carousel-item w-full flex flex-col items-center">
-        <BattleMechanicsSlide />
+      <div id="slide2" class="carousel-item w-full max-w-full shrink-0 flex flex-col items-center justify-start overflow-hidden">
+        <BattleMechanicsSlide class="w-full max-w-full overflow-hidden" />
       </div>
       
       <!-- Slide 3: Fin del Juego y Salón de la Fama -->
-      <div id="slide3" class="carousel-item w-full flex flex-col items-center">
-        <ScoringAndHallOfFame />
+      <div id="slide3" class="carousel-item w-full max-w-full shrink-0 flex flex-col items-center justify-start overflow-hidden">
+        <ScoringAndHallOfFame class="w-full max-w-full overflow-hidden" />
 
       </div>
 
