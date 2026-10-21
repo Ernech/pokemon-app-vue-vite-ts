@@ -8,6 +8,7 @@ interface PokemonSate{
     pokemon: PokemonForQuiz | undefined;
     showPokemon:boolean;
     showAnswer:boolean;
+    isNewHighScore:boolean,
     message:string;
     lives:number;
     score:number;
@@ -20,6 +21,7 @@ export const usePokemonStore = defineStore('pokemon',{
         pokemon:undefined,
         showPokemon:false,
         showAnswer:false,
+        isNewHighScore:false,
         message:'',
         lives:5,
         score:0

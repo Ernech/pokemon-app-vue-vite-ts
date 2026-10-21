@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const usePokemons=()=>{
 
     const pokemonStore = usePokemonStore();
-    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives, score, isGameOver } = storeToRefs(pokemonStore)
+    const { pokemonArr, pokemon, showPokemon, showAnswer, message,lives, score, isGameOver, isNewHighScore } = storeToRefs(pokemonStore)
     
 
 
@@ -42,8 +42,8 @@ export const usePokemons=()=>{
     }
     const gameOver = ()=>{
        
-         let scoresArray: PokemonQuizScore[] = [];
-
+        let scoresArray: PokemonQuizScore[] = [];
+        isNewHighScore.value =false;
         try {
             const storedScores = localStorage.getItem('scores');
             if (storedScores) {
@@ -71,7 +71,15 @@ export const usePokemons=()=>{
             scoreDate: new Date()
         };
 
-      
+        if (scoresArray.length === 0 && score.value > 0) {
+        isNewHighScore.value = true;
+      } else if (scoresArray.length > 0) {
+        // El primer elemento (index 0) siempre es el puntaje más alto porque están ordenados
+        const currentHighest = scoresArray[0].finalScore;
+        if (score.value > currentHighest) {
+          isNewHighScore.value = true;
+        }
+      }
         scoresArray.push(newScore);
 
     
@@ -112,8 +120,7 @@ export const usePokemons=()=>{
         message,
         lives,
         imgSrc:computed(()=>`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ pokemon.value?.id }.svg`),
-
-
+        isNewHighScore,
         mixPokemonArray,
         checkAnswer,
         continueGame,

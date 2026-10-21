@@ -21,6 +21,11 @@
         <p class="text-sm font-bold uppercase tracking-widest text-blue-600 -mt-0.5">
           {{currentTrainer}}
         </p>
+        <div v-if="isNewHighScore" 
+            class="mb-2 text-xs font-black tracking-widest text-yellow-400 bg-black py-1 px-2 
+                    border-2 border-yellow-400 animate-pulse uppercase">
+          🔥 New High Score! 🔥
+        </div>
         <p class="text-[11px] uppercase tracking-wider text-gray-500 mt-3">
           Final Score
         </p>
@@ -60,7 +65,7 @@ import { useRouter } from 'vue-router';
 import { usePokemons } from '../composables/usePokemonsForQuiz';
 import { computed } from 'vue';
 const router = useRouter();
-const {score, isGameOver,lives, continueGame } = usePokemons();
+const {score, isGameOver,lives, continueGame, isNewHighScore } = usePokemons();
 const currentTrainer = computed(() => {
   return localStorage.getItem('currentPlayer') || 'TRAINER';
 });
