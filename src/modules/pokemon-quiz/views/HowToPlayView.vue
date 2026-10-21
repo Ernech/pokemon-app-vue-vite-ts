@@ -6,7 +6,7 @@
       How To Play
     </h1>
 
-    <div class="w-full bg-white/10 backdrop-blur-md border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-4 md:p-8 min-h-[350px] flex items-center justify-center">
+    <div class="w-full bg-white/10 backdrop-blur-md border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.3)] rounded-sm p-4 md:p-8 min-h-87.5 flex items-center justify-center">
     
       <Transition name="fade" mode="out-in">
      
