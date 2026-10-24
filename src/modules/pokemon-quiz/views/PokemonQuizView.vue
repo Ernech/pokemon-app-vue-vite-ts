@@ -77,7 +77,6 @@ const router = useRouter()
 mixPokemonArray();
 const showQuitModal = ref(false)
 const exitGame = ()=>{
-  //Reset Score and lives
   score.value=0;
   lives.value = 5;
   router.push('/')

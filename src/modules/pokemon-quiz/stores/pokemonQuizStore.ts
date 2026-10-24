@@ -32,6 +32,7 @@ export const usePokemonStore = defineStore('pokemon',{
         },
         setHiddenPokemon(pokemon:PokemonForQuiz){
             this.pokemon=pokemon;
+            console.log(pokemon);
         },
         showPokemonAndAnswer(message:string){
             this.showAnswer=true;

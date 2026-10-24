@@ -41,7 +41,6 @@ export const usePokemons=()=>{
         }
     }
     const gameOver = ()=>{
-       
         let scoresArray: PokemonQuizScore[] = [];
         isNewHighScore.value =false;
         try {
@@ -74,7 +73,6 @@ export const usePokemons=()=>{
         if (scoresArray.length === 0 && score.value > 0) {
         isNewHighScore.value = true;
       } else if (scoresArray.length > 0) {
-        // El primer elemento (index 0) siempre es el puntaje más alto porque están ordenados
         const currentHighest = scoresArray[0].finalScore;
         if (score.value > currentHighest) {
           isNewHighScore.value = true;
@@ -124,6 +122,7 @@ export const usePokemons=()=>{
         mixPokemonArray,
         checkAnswer,
         continueGame,
+        gameOver,
         score,
         isGameOver,
         getTopScores

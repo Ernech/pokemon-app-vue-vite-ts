@@ -70,6 +70,7 @@ const currentTrainer = computed(() => {
   return localStorage.getItem('currentPlayer') || 'TRAINER';
 });
 const exitGame = ()=>{
+  continueGame();
   score.value=0;
   lives.value = 5;
   router.push('/')
