@@ -18,7 +18,15 @@
         mb-5 
         ">Who's that pokemon?</h1>
         <div class="min-h-132 card w-full max-w-md bg-slate-50 border-4 border-neutral-900 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] px-6 py-4">
-             <h1 v-if="!pokemon" class="flex font-pixel">Hold on please...</h1>
+             <div v-if="!pokemon" class="flex flex-col items-center justify-center animate-pulse gap-6">
+              <div class="w-full h-15 bg-gray-300 dark:bg-gray-500 rounded-lg"></div>
+              <div class="w-48 h-48 bg-gray-300 dark:bg-gray-500 rounded-full"></div>
+              
+              <div class="w-full h-10 bg-gray-300 dark:bg-gray-500 rounded-md"></div>
+              <div class="w-full h-10 bg-gray-300 dark:bg-gray-500 rounded-md"></div>
+              <div class="w-full h-10 bg-gray-300 dark:bg-gray-500 rounded-md"></div>
+              <div class="w-full h-10 bg-gray-300 dark:bg-gray-500 rounded-md"></div>
+            </div>
              <template v-else>
                 <PokeballsHealthBarAndScore/>
                  <PokemonPicture />
