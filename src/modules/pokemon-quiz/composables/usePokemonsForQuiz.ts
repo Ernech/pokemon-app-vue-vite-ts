@@ -19,7 +19,7 @@ export const usePokemons=()=>{
     }
 
     const checkAnswer = async (selectedId: number) => {
-        if (!pokemon.value) return;
+        if (!pokemon.value || showAnswer.value) return;
 
         if (selectedId === pokemon.value.id) {
             pokemonStore.incrementScore();

@@ -27,6 +27,20 @@ export const usePokemonStore = defineStore('pokemon',{
         lives:5,
         score:0
     }),
+    persist:{
+        key: 'pokemon-quiz-state',
+        storage:localStorage,
+        pick: [
+            'pokemonArr',
+            'pokemon',
+            'showPokemon',
+            'showAnswer',
+            'message',
+            'lives',
+            'score',
+            'highScore',
+        ]
+    },
     actions:{
         loadPokemons(pokemons:PokemonForQuiz[]){
             this.pokemonArr=pokemons;
